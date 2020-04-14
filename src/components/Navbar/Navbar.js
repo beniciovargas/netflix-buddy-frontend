@@ -8,7 +8,7 @@ import './Navbar.css';
 function Navbar(props){
   return (
     <div id="navbar">
-      <nav className = "navbar is-black" role="navigation" aria-label="main-navigation">
+      <nav className = "navbar is-transparent" role="navigation" aria-label="main-navigation">
         <div className="navbar-brand">
           <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>

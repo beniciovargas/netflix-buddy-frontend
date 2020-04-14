@@ -1,5 +1,5 @@
 import React from 'react';
-import hero from '../../images/hero.jpg';
+import './Homepage.css'
 
 
 export default class Homepage extends React.Component{
@@ -9,9 +9,13 @@ export default class Homepage extends React.Component{
     render(){
 
         return(
-            <div>
-                <img src={hero} alt='someone watching netflix' />
-            </div>
+            <section className ="hero is-fullheight">
+                <div className = "hero-body">
+                    <div className = "container">
+                        <h1 className="title has-text-centered has-text-white-bis">Welcome to Netflix Buddy</h1>
+                    </div>
+                </div>
+            </section>
         )
     }
 

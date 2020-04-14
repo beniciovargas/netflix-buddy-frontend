@@ -19,7 +19,7 @@ export default class Searchpage extends React.Component{
         fetch(`https://unogsng.p.rapidapi.com/search?country_andorunique=unitedstates&limit=100&audio=english&query=${this.state.query}`, {
             "method": "GET",
             "headers": {
-                "x-rapidapi-key": "9d2f127181msh3e554cb789a066cp19ab50jsnc60d2a62069b",
+                "x-rapidapi-key": "f3d5f8decemsh5e4802d96d38dfcp1f2f5cjsn87b73be2ffd8",
             },
         })
         .then(response => {
@@ -39,7 +39,7 @@ export default class Searchpage extends React.Component{
             results = this.state.response.map((result)=> {
                 return(
                     <Results
-                        result = {result.title}
+                        result = {result}
                         key = {result.id}
                     />
                     
@@ -49,7 +49,6 @@ export default class Searchpage extends React.Component{
 
         return(
             <div className = "searchpage">
-                <h1 className="title">this is the searchpage!!</h1>
                 <div className="field has-addons">
                     <div className = "control">
                         <input onChange = {this.handleChange} class="input is-primary" type="text" placeholder="search"></input>
@@ -57,7 +56,9 @@ export default class Searchpage extends React.Component{
                     <div className = "control"></div>
                         <a onClick={this.search} class="button is-primary">Submit</a>
                 </div>
+                <div class="tile is-ancestor is-one-quarter">
                 {results}
+                </div>
             </div>
         )
     }
