@@ -1,7 +1,7 @@
 import React from 'react';
 import jwt_decode from 'jwt-decode';
 import setAuthHeader from '../../utils/setAuthHeader';
-import Navbar from '../Navbar/Navbar';
+import Navbar from '../../layout/Navbar/Navbar';
 import Routes from '../../config/Routes';
 import UserApi from '../../api/UserApi';
 import './App.css';
