@@ -3,7 +3,8 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 import Home from '../components/Homepage/Homepage';
 import Register from '../../src/components/auth/Register/Register';
 import Login from '../../src/components/auth/Login/Login';
-//import Searchpage from '../components/Searchpage/Searchpage';
+import Profile from '../components/Profile/Profile';
+import Searchpage from '../components/Searchpage/Searchpage';
 
 // routes contains a lot of ternary statements
 // these are largely designed to see if the user is logged in (via the App component's state, passed down as props)
@@ -12,6 +13,7 @@ import Login from '../../src/components/auth/Login/Login';
 const Routes = (props) => {
   return (
     <Switch>
+
         <Route
             exact path='/'
             component={ Home }
@@ -22,21 +24,32 @@ const Routes = (props) => {
             path='/register'
             render={
             () => props.user ? 
-                    <Redirect to="/search" />
+                    <Redirect to="/profile" />
                     :
                     <Register register={props.register} />
             }
         />
+
         <Route
             exact path='/login'
             render={
               () => props.user ?
-                      <Redirect to="/search" />
+                      <Redirect to="/profile" />
                     :
                     <Login login={props.login} />
             }
-            
         />
+
+        <Route 
+          exact path='/profile'
+          component = {Profile}
+        />
+
+        <Route  
+          exact path = '/search'
+          component = {Searchpage}
+        />
+
     </Switch>
   )
 }

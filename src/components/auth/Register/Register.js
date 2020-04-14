@@ -7,6 +7,17 @@ class Register extends React.Component {
     password2: ''
   }
 
+
+// modalClicked(){
+//   let modal = document.querySelector('.modal');
+//   modal.classList.add('is-active');
+//   }
+
+// modalClose(){
+//   let modal = document.querySelector('.modal');
+//   modal.classList.remove('is-active');
+//   }
+
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
@@ -60,4 +71,15 @@ class Register extends React.Component {
   }
 }
 
+
+{/* <div>
+                    <button onClick = {this.modalClicked} className = "button is-primary is-large modal-button" data-target="modal" aria-haspopup="true">Register</button>
+                </div>
+                <div className="modal">
+                    <div className="modal-background"></div>
+                        <div className="modal-content">
+                            register now
+                        </div>
+                    <button onClick={this.modalClose} className="modal-close is-large" aria-label="close"></button>
+                </div> */}
 export default Register;

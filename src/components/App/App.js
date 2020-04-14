@@ -1,7 +1,7 @@
 import React from 'react';
 import jwt_decode from 'jwt-decode';
 import setAuthHeader from '../../utils/setAuthHeader';
-import Header from '../Header/Header';
+import Navbar from '../Navbar/Navbar';
 import Routes from '../../config/Routes';
 import UserApi from '../../api/UserApi';
 import './App.css';
@@ -91,7 +91,7 @@ logout = () => {
     return (
       <div className="App">
       
-            <Header
+            <Navbar
               logout= {this.logout}
               user = {this.state.user}
             />
