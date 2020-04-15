@@ -33,6 +33,23 @@ export default class Searchpage extends React.Component{
         });
     }
 
+    // addShow = (event) => {
+    //     event.preventDefault();
+    //     console.log('adding show...')
+    //     fetch(`http://localhost:4000/api/v1/shows`,{
+    //         "method": "POST",
+    //         "headers":{
+    //             "authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJlbmkiLCJfaWQiOiI1ZTkzZTQ1M2Y4ZTUxMjI1NzQ3YTJkNTEiLCJpYXQiOjE1ODY3NTA1NDcsImV4cCI6MTU4OTM0MjU0N30.43A7dtYQS1uLht3EgELowcvM_1VIofZl8gHQEojeuv4", 
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify()
+    //         .catch((err)=> {
+    //             console.log(err);
+    //         })
+    //     })
+    // }
+    
+
     render(){
         let results;
         if (this.state.response){
@@ -42,11 +59,10 @@ export default class Searchpage extends React.Component{
                         result = {result}
                         key = {result.id}
                     />
-                    
                 )
             })
         }
-
+      
         return(
             <div className = "searchpage">
                 <div className="field has-addons">
@@ -56,6 +72,7 @@ export default class Searchpage extends React.Component{
                     <div className = "control"></div>
                         <a onClick={this.search} class="button is-primary">Submit</a>
                 </div>
+                
                 <div class="tile is-ancestor is-one-quarter">
                 {results}
                 </div>

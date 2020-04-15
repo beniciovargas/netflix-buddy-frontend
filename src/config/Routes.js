@@ -5,6 +5,7 @@ import Register from '../../src/components/auth/Register/Register';
 import Login from '../../src/components/auth/Login/Login';
 import Profile from '../components/Profile/Profile';
 import Searchpage from '../components/Searchpage/Searchpage';
+import Showpage from '../components/Showpage/Showpage';
 
 // routes contains a lot of ternary statements
 // these are largely designed to see if the user is logged in (via the App component's state, passed down as props)
@@ -38,6 +39,11 @@ const Routes = (props) => {
                     :
                     <Login login={props.login} />
             }
+        />
+
+        <Route 
+          exact path='/shows'
+          component = {Showpage}
         />
 
         <Route 
