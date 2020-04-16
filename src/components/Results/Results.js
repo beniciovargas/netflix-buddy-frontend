@@ -3,7 +3,8 @@ import {Redirect} from 'react-router-dom';
 
 export default class Results extends React.Component{
     state={
-        detailsClicked: false
+        detailsClicked: false,
+        selectedShowId: '',
     }
 
     addShow = () => {
@@ -25,14 +26,19 @@ export default class Results extends React.Component{
             console.log(err)
         })
         this.setState({
-            detailsClicked: true
+            detailsClicked: true,
+            selectedShowId: this.props.result.id
         })
     }
 
     render(){
-        if (this.state.detailsClicked){
-            return <Redirect to="/shows" />
+        if (this.state.detailsClicked && this.state.selectedShowId){
+            return <Redirect to={{
+                pathname: "/shows",
+                params: this.state.selectedShowId
+            }}/>
         }
+
 
         return(
             <div class="tile is-parent">

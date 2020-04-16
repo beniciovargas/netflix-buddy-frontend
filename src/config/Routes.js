@@ -44,6 +44,11 @@ const Routes = (props) => {
         />
 
         <Route 
+          path='/shows/:id'
+          component = { Showpage }
+        />
+
+        <Route 
           exact path='/profile'
           component = { Profile }
         />
