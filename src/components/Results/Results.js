@@ -33,12 +33,12 @@ export default class Results extends React.Component{
 
     render(){
         if (this.state.detailsClicked && this.state.selectedShowId){
+            console.log (this.state.selectedShowId)
             return <Redirect to={{
                 pathname: "/shows",
                 params: this.state.selectedShowId
             }}/>
         }
-
 
         return(
             <div class="tile is-parent">
