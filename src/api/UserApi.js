@@ -12,7 +12,13 @@ const login = (user) => {
     .then(res => res);
 }
 
+// const profile = (user) => {
+//   return axios.get(`${endpoint}/users/${user._id}`, user)
+//     .then(res => res);
+// }
+
 export default {
   register,
-  login
+  login,
+  // profile
 }

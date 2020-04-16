@@ -94,11 +94,13 @@ logout = () => {
             <Navbar
               logout= {this.logout}
               user = {this.state.user}
+              id = {this.state.id}
             />
             <Routes 
               user={this.state.user}
               login={this.login}
               register={this.register}
+              id = {this.state.id}
             />
       
       </div>

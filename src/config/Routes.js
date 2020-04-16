@@ -7,54 +7,52 @@ import Profile from '../components/Profile/Profile';
 import Searchpage from '../components/Searchpage/Searchpage';
 import Showpage from '../components/Showpage/Showpage';
 
-// routes contains a lot of ternary statements
-// these are largely designed to see if the user is logged in (via the App component's state, passed down as props)
-// if the user is not logged in, it will redirect them to login
-// if the user tries to go to /register or /login, but IS logged in, it will redirect them to /doggos
+
 const Routes = (props) => {
   return (
     <Switch>
 
         <Route
-            exact path='/'
-            component={ Home }
+          exact path='/'
+          component={ Home }
         />
 
       
         <Route
-            path='/register'
-            render={
+          path='/register'
+          render={
             () => props.user ? 
-                    <Redirect to="/profile" />
-                    :
-                    <Register register={props.register} />
-            }
+              <Redirect to="/profile" />
+                :
+              <Register register={ props.register }  />
+          }
         />
 
         <Route
-            exact path='/login'
-            render={
-              () => props.user ?
-                      <Redirect to="/profile" />
-                    :
-                    <Login login={props.login} />
-            }
+          exact path='/login'
+          render={
+            () => props.user ?
+              <Redirect to="/profile" />
+                :
+              <Login login={ props.login } />
+          }
         />
 
         <Route 
           exact path='/shows'
-          component = {Showpage}
+          component = { Showpage }
         />
 
         <Route 
           exact path='/profile'
-          component = {Profile}
+          component = { Profile }
         />
 
         <Route  
           exact path = '/search'
-          component = {Searchpage}
+          component = { Searchpage }
         />
+
 
     </Switch>
   )

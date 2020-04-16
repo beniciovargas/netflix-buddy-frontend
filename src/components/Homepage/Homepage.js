@@ -12,7 +12,7 @@ export default class Homepage extends React.Component{
             <section className ="hero is-fullheight">
                 <div className = "hero-body">
                     <div className = "container">
-                        <h1 className="title has-text-centered has-text-white-bis">Welcome to Netflix Buddy</h1>
+                        <header className="is-size-1-desktop has-text-centered has-text-white-bis has-text-weight-semibold">Welcome to Netflix Buddy</header>
                     </div>
                 </div>
             </section>
