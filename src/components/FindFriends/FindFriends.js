@@ -2,7 +2,7 @@ import React from 'react';
 import setAuthHeader from '../../utils/setAuthHeader';
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
-import Friends from '../Friends/Friends';
+import FriendsResults from '../FriendsResults/FriendsResults';
 
 
 export default class FindFriends extends React.Component{
@@ -30,7 +30,7 @@ export default class FindFriends extends React.Component{
         
             let foundUsers = this.state.response.map((foundUser)=> {
                 if (this.state.response){
-                    return(<Friends
+                    return(<FriendsResults
                             foundUser = {foundUser}
                             key = {foundUser.id}
                         />

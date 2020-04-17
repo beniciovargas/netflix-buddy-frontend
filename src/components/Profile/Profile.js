@@ -4,6 +4,7 @@ import jwt_decode from 'jwt-decode';
 import CurrentlyWatching from '../CurrentlyWatching/CurrentlyWatching';
 import Faves from '../Faves/Faves';
 import NextUp from '../NextUp/NextUp';
+import Friends from '../Friends/Friends';
 import './Profile.css'
 import axios from 'axios';
 
@@ -19,13 +20,10 @@ export default class Profile extends React.Component{
       }
     
       componentDidMount() {
-        // if there's a token in local storage
+       
         if (localStorage.jwtToken) {
-          // set the auth header to the token
           setAuthHeader(localStorage.jwtToken);
-          // decode the token
           const decoded = jwt_decode(localStorage.getItem('jwtToken'));
-          // set the state to the decoded token properties
           this.setState({
             user: decoded.username,
             userId: decoded._id
@@ -62,7 +60,11 @@ export default class Profile extends React.Component{
             return (<Faves show= {show}
                             key={show._id} />)}
         })
-      
+        let friends = this.state.friends.map((friend)=>{
+          if (this.state.friends.length>0){
+            return (<Friends friend= {friend}
+                            key={friend._id} />)}
+        })
         return(
             <div className = "profile-header">
                 <div className = "profile-header">
@@ -71,6 +73,7 @@ export default class Profile extends React.Component{
                     {nextUpShows}
                     {currentlyWatchingShows}
                     {faveShows}
+                    {friends}
             </div>
 
         );

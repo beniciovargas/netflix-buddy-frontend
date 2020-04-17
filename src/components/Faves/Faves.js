@@ -12,7 +12,7 @@ export default class Recommendations extends React.Component {
     axios.get(`http://localhost:4000/api/v1/shows`)
     .then((res) => {
         for (let i=0; i<res.data.length; i++)
-            if(res.data[i]._id == this.props.show){
+            if(res.data[i]._id === this.props.show){
                 this.setState({
                     faveShow: res.data[i]
                 })
