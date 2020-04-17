@@ -12,9 +12,9 @@ export default class Profile extends React.Component{
     state = {
         user: '',
         userId: '',
-        nextUp:[],
-        currentlyWatching: [],
-        faves: [],
+        nextUpShows:[],
+        currentlyWatchingShows: [],
+        faveShows: [],
         friends:[]
       }
     
@@ -33,34 +33,47 @@ export default class Profile extends React.Component{
         }
           
         axios.get(`http://localhost:4000/api/v1/users/${this.state.userId}`)
-        .then((res)=>{
+        .then((res) => {
+          console.log(res)
           this.setState({
-            nextUp: res.data.nextUp,
-            currentlyWatching: res.data.currentlyWatching,
-            faves: res.data.faves,
-            friends: res.data.friends
+            nextUpShows: res.data[0].nextUp,
+            currentlyWatchingShows: res.data[0].currentlyWatching,
+            faveShows: res.data[0].faves,
+            friends: res.data[0].friends
           })
         })
         .catch((err)=> {console.log(err)})
       }
+
     render(){
-      // let nextUp = this.state.nextUp.map((shows) => <h1>{show}</h1>
+      
+        let nextUpShows = this.state.nextUpShows.map((show)=>{
+          if (this.state.nextUpShows.length>0){
+            return (<NextUp show= {show}
+                            key={show._id} />)}
+        })
+        let currentlyWatchingShows = this.state.currentlyWatchingShows.map((show)=>{
+          if (this.state.currentlyWatchingShows.length>0){
+            return (<CurrentlyWatching show= {show}
+                            key={show._id} />)}
+        })
+        let faveShows = this.state.faveShows.map((show)=>{
+          if (this.state.faveShows.length>0){
+            return (<Faves show= {show}
+                            key={show._id} />)}
+        })
+      
         return(
-            <div className = "profile-header column is-vcentered">
+            <div className = "profile-header">
                 <div className = "profile-header">
                   <h1 className = "title">Welcome {this.state.user}!! </h1>
-                  
-                  <h1 className = "title"> {this.state.nextUp}!! </h1>
-                  <h1 className = "title"> {this.state.currentlyWatching}!! </h1>
-                  <h4 className = "subtitle"> below is what you are currently watching and your recommendations!</h4>
                 </div>
-                    <CurrentlyWatching />
-                    <NextUp />
-                    <Faves />
-              
+                    {nextUpShows}
+                    {currentlyWatchingShows}
+                    {faveShows}
             </div>
 
-        )
+        );
     }
 
 }

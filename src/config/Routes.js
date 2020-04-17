@@ -43,7 +43,7 @@ const Routes = (props) => {
         />
 
         <Route 
-          exact path='/profile'
+          path='/profile'
           component = { Profile }
         />
 
