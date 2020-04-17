@@ -8,6 +8,7 @@ export default class CurrentlyWatching extends React.Component {
         return(
             <div className="currently-watching"> 
                 <h2 className="title"> this is the currently watching section! </h2>
+                <p>{this.props.nextUp}</p>
             </div>
         )
     }

@@ -17,8 +17,7 @@ const Routes = (props) => {
           component={ Home }
         />
 
-      
-        <Route
+        <Route 
           path='/register'
           render={
             () => props.user ? 
@@ -39,11 +38,6 @@ const Routes = (props) => {
         />
 
         <Route 
-          exact path='/shows'
-          component = { Showpage }
-        />
-
-        <Route 
           path='/shows/:id'
           component = { Showpage }
         />
@@ -57,7 +51,6 @@ const Routes = (props) => {
           exact path = '/search'
           component = { Searchpage }
         />
-
 
     </Switch>
   )

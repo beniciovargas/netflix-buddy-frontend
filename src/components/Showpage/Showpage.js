@@ -1,29 +1,36 @@
 import React from 'react';
 import axios from 'axios';
+import setAuthHeader from '../../utils/setAuthHeader';
+import jwt_decode from 'jwt-decode';
 
 
 export default class Showpage extends React.Component{
     state = {
+        user:'',
+        userId: '',
         currentShow: '',
         currentShowId: null,
         dropdownClicked: false,
     }
 
     componentDidMount(){
-        let id = this.props.location.params;
-        console.log(id)
-        axios.get('http://localhost:4000/api/v1/shows',)
+        if (localStorage.jwtToken) {
+            setAuthHeader(localStorage.jwtToken);
+            const decoded = jwt_decode(localStorage.getItem('jwtToken'));
+            this.setState({
+              user: decoded.username,
+              userId: decoded._id
+            })
+        }
+
+        let id = this.props.match.params.id;
+        axios.get(`http://localhost:4000/api/v1/shows/${id}`)
         .then((res)=>{
-            console.log(res.data)
-            for (let i = 0; i<res.data.length; i++ ){
-                if (res.data[i].id == id){
-                    this.setState({
-                        currentShow: res.data[i],
-                        currentShowId: res.data[i]._id
-                    })
-                }
-            }
-        })
+                this.setState({
+                    currentShow: res.data,
+                    currentShowId: res.data._id
+                })
+            })
         .catch(err => console.log(err))
     }
 
@@ -34,17 +41,36 @@ export default class Showpage extends React.Component{
         if(this.state.dropdownClicked){
             let dropdown = document.querySelector('.dropdown');
             dropdown.classList.add("is-active");
+        }else{
+            let dropdown = document.querySelector('.dropdown');
+            dropdown.classList.remove("is-active");
         }
     }
 
     nextUpAdd = () => {
         console.log("next up selected!")
+        axios.put(`http://localhost:4000/api/v1/users/${this.state.userId}`,{
+            nextUp: this.state.currentShow
+        })
+        .then((res)=>{console.log(res)})
+        .catch((err)=> {console.log(err)})
+            
     }
     favesAdd = () => {
         console.log("faves selected!")
+        axios.put(`http://localhost:4000/api/v1/users/${this.state.userId}`,{
+            faves: this.state.currentShow
+        })
+        .then((res)=>{console.log(res)})
+        .catch((err)=> {console.log(err)})
     }
     currentlyWatchingAdd = () => {
         console.log("currenly watching selected!")
+        axios.put(`http://localhost:4000/api/v1/users/${this.state.userId}`,{
+            currentlyWatching: this.state.currentShow
+        })
+        .then((res)=>{console.log(res)})
+        .catch((err)=> {console.log(err)})
     }
 
     render(){
@@ -77,9 +103,7 @@ export default class Showpage extends React.Component{
                 </div>
                 <div className="tile is-parent">
                     <article className="tile is-child box">
-                        <h1>this is the details page!</h1>
                         <p className="title">{this.state.currentShow.title}</p>
-                        <p className="title">{this.state.currentShowId}</p>
                         <p className="subtitle">{this.state.currentShow.synopsis}</p>
                         <figure className="image is-4by3">
                             <img src={this.state.currentShow.img}/>

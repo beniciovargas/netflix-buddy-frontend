@@ -1,5 +1,5 @@
 import React from 'react';
-import './Recommendations.css'
+import './Faves.css'
 
 
 export default class Recommendations extends React.Component {

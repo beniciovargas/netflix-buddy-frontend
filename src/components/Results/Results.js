@@ -1,10 +1,12 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
+import axios from 'axios';
 
 export default class Results extends React.Component{
     state={
         detailsClicked: false,
         selectedShowId: '',
+        showDbId: null,
     }
 
     addShow = () => {
@@ -31,13 +33,25 @@ export default class Results extends React.Component{
         })
     }
 
+    getShowDbId = () => {
+        axios.get(`http://localhost:4000/api/v1/shows`)
+        .then((res)=>{
+            for (let i=0; i<res.data.length; i++)
+                if (res.data[i].id == this.state.selectedShowId){
+                    this.setState({
+                        showDbId: res.data[i]._id
+                    })
+                }
+        })
+        // return <Redirect to={`/shows/${this.state.showDbId}`}/>
+    }
+
     render(){
         if (this.state.detailsClicked && this.state.selectedShowId){
-            console.log (this.state.selectedShowId)
-            return <Redirect to={{
-                pathname: "/shows",
-                params: this.state.selectedShowId
-            }}/>
+            this.getShowDbId();
+        }
+        if(this.state.showDbId !== null){
+            return <Redirect to={`/shows/${this.state.showDbId}`}/>
         }
 
         return(
