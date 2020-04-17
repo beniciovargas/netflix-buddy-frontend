@@ -25,6 +25,9 @@ function Navbar(props){
                 ? 
               <div class="navbar-end">
                 <a class="navbar-item">
+                    <Link to='/users'>Find Friends</Link>
+                </a>
+                <a class="navbar-item">
                     <Link to='/search'>Search</Link>
                 </a>
                 <a class="navbar-item">

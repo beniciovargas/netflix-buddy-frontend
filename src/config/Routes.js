@@ -6,6 +6,7 @@ import Login from '../../src/components/auth/Login/Login';
 import Profile from '../components/Profile/Profile';
 import Searchpage from '../components/Searchpage/Searchpage';
 import Showpage from '../components/Showpage/Showpage';
+import FindFriends from '../components/FindFriends/FindFriends';
 
 
 const Routes = (props) => {
@@ -52,6 +53,10 @@ const Routes = (props) => {
           component = { Searchpage }
         />
 
+        <Route  
+          exact path = '/users'
+          component = { FindFriends }
+        />
     </Switch>
   )
 }
