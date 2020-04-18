@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import setAuthHeader from '../../utils/setAuthHeader';
+import {Redirect} from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
 
@@ -11,6 +12,7 @@ export default class Showpage extends React.Component{
         currentShow: '',
         currentShowId: null,
         dropdownClicked: false,
+        redirect: false,
     }
 
     componentDidMount(){
@@ -47,6 +49,12 @@ export default class Showpage extends React.Component{
         }
     }
 
+    handleRedirect =() =>{
+        if (this.state.redirect){
+            return <Redirect to={`/profile/${this.state.userId}`}/>   
+        }
+    }
+
     nextUpAdd = () => {
         console.log("next up selected!")
         axios.put(`http://localhost:4000/api/v1/users/${this.state.userId}`,{
@@ -54,8 +62,11 @@ export default class Showpage extends React.Component{
         })
         .then((res)=>{console.log(res)})
         .catch((err)=> {console.log(err)})
-            
+        this.setState({
+            redirect:true
+        }) 
     }
+
     favesAdd = () => {
         console.log("faves selected!")
         axios.put(`http://localhost:4000/api/v1/users/${this.state.userId}`,{
@@ -63,7 +74,11 @@ export default class Showpage extends React.Component{
         })
         .then((res)=>{console.log(res)})
         .catch((err)=> {console.log(err)})
+        this.setState({
+            redirect:true
+        }) 
     }
+
     currentlyWatchingAdd = () => {
         console.log("currently watching selected!")
         axios.put(`http://localhost:4000/api/v1/users/${this.state.userId}`,{
@@ -71,9 +86,16 @@ export default class Showpage extends React.Component{
         })
         .then((res)=>{console.log(res)})
         .catch((err)=> {console.log(err)})
+        this.setState({
+            redirect:true
+        }) 
     }
 
+
     render(){
+        if (this.state.redirect){
+            return <Redirect to={`/profile/${this.state.userId}`}/>   
+        }
         return(
             <div>
                 <div className="dropdown">

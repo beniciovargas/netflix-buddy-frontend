@@ -43,43 +43,67 @@ export default class Profile extends React.Component{
     })
     .catch((err) => {console.log(err)})
   }
-    
+  
+  // componentWillUpdate(prevState){
+  //   if (this.state.nextUpShows !== this.prevState.nextUpShows){
+  //     return true;
+  //   }
+  //   if (this.state.currentlyWatchingShows !== this.prevState.currentlyWatchingShows){
+  //     return true;
+  //   }
+  //   if (this.state.faveShows !== this.prevState.faveShows){
+  //     return true;
+  //   }
+  // }
+
   render(){
-    let currentlyWatchingShows = this.state.currentlyWatchingShows.map((show)=>{
-      return (
-        <CurrentlyWatching show={show} key={show.title} />
-      )
-    })
-
-    let nextUpShows = this.state.nextUpShows.map((show)=>{
-      return (
-        <NextUp show={show} key={show.title} />
-      )
-    })
-
-    let faveShows = this.state.faveShows.map((show)=>{
-      return (
-        <Faves show={show} key={show.title} />
-      )
-    })
-
-    let friends = this.state.friends.map((friend)=>{
-      return (
-        <Friends friend={friend} key={friend.username} />
-      )
-    })
-    
-
 
       return(
           <div className = "profile-header">
               <div className = "profile-header">
                 <h1 className = "title">Welcome {this.state.user}</h1>
               </div>
-              {faveShows} 
-              {nextUpShows}    
-              {currentlyWatchingShows}  
-              {friends}
+                {this.state.currentlyWatchingShows.length>0 ? (
+                  this.state.currentlyWatchingShows.map((show)=> {
+                    return (<CurrentlyWatching show={show} key={show.title}/>)
+                  })
+                ) : (
+                    <p>add a show youre currently watching!</p>
+                    )
+                }
+
+                {this.state.nextUpShows.length>0 ? (
+                  this.state.nextUpShows.map((show)=> {
+                    return (<NextUp show={show} key={show.title}/>)
+                  })
+                ) : (
+                    <p>add a show you want to watch next!</p>
+                    )
+                }  
+
+                {this.state.faveShows.length >0 ? (
+                  this.state.faveShows.map((show)=> {
+                    return (<Faves show={show} key={show.title}/>)
+                  })
+                ) : (
+                    <p>add one of your faves here!</p>
+                    )
+                }
+                
+                {this.state.friends.length>0 ? (
+                  this.state.friends.map((friend)=> {
+                    return (<Friends friend={friend} key={friend.username}/>)
+                  })
+                ) : (
+                    <p>search for one of your friends</p>
+                    )
+                }
+
+
+              {/* // {faveShows} 
+              // {nextUpShows}    
+              // {currentlyWatchingShows}  
+              // {friends} */}
           </div>
 
       );

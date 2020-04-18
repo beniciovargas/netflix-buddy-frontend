@@ -43,7 +43,6 @@ export default class Results extends React.Component{
                     })
                 }
         })
-        // return <Redirect to={`/shows/${this.state.showDbId}`}/>
     }
 
     render(){

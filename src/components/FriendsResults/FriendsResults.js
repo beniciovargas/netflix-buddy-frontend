@@ -2,11 +2,13 @@ import React from 'react';
 import setAuthHeader from '../../utils/setAuthHeader';
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
+import {Redirect} from 'react-router-dom';
 
 export default class Friends extends React.Component{
     state={
         user:'',
         userId: '',
+        redirect: false,
     }
 
     componentDidMount(){
@@ -27,9 +29,15 @@ export default class Friends extends React.Component{
         })
         .then((res)=>{console.log(res)})
         .catch((err)=> {console.log(err)})
+        this.setState({
+            redirect: true
+        })
         }
 
     render(){
+        if (this.state.redirect){
+            return <Redirect to={`/profile/${this.state.userId}`}/>   
+        }
         return(
             <div class="tile is-parent">
                 <article class="tile is-child box">
