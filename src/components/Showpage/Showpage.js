@@ -65,7 +65,7 @@ export default class Showpage extends React.Component{
         .catch((err)=> {console.log(err)})
     }
     currentlyWatchingAdd = () => {
-        console.log("currenly watching selected!")
+        console.log("currently watching selected!")
         axios.put(`http://localhost:4000/api/v1/users/${this.state.userId}`,{
             currentlyWatching: this.state.currentShow
         })

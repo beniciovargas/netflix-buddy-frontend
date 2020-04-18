@@ -37,7 +37,7 @@ export default class Results extends React.Component{
         axios.get(`http://localhost:4000/api/v1/shows`)
         .then((res)=>{
             for (let i=0; i<res.data.length; i++)
-                if (res.data[i].id == this.state.selectedShowId){
+                if (res.data[i].id === this.state.selectedShowId){
                     this.setState({
                         showDbId: res.data[i]._id
                     })

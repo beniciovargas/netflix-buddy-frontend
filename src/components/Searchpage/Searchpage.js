@@ -32,22 +32,6 @@ export default class Searchpage extends React.Component{
             console.log(this.state.response)
         });
     }
-
-    // addShow = (event) => {
-    //     event.preventDefault();
-    //     console.log('adding show...')
-    //     fetch(`http://localhost:4000/api/v1/shows`,{
-    //         "method": "POST",
-    //         "headers":{
-    //             "authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJlbmkiLCJfaWQiOiI1ZTkzZTQ1M2Y4ZTUxMjI1NzQ3YTJkNTEiLCJpYXQiOjE1ODY3NTA1NDcsImV4cCI6MTU4OTM0MjU0N30.43A7dtYQS1uLht3EgELowcvM_1VIofZl8gHQEojeuv4", 
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify()
-    //         .catch((err)=> {
-    //             console.log(err);
-    //         })
-    //     })
-    // }
     
 
     render(){

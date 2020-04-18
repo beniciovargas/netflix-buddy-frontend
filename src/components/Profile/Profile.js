@@ -10,78 +10,79 @@ import axios from 'axios';
 
 
 export default class Profile extends React.Component{
-    state = {
-        user: '',
-        userId: '',
-        nextUpShows:[],
-        currentlyWatchingShows: [],
-        faveShows: [],
-        friends:[]
-      }
-    
-    componentDidMount() {
-      
-      if (localStorage.jwtToken) {
-        setAuthHeader(localStorage.jwtToken);
-        const decoded = jwt_decode(localStorage.getItem('jwtToken'));
-        this.setState({
-          user: decoded.username,
-          userId: decoded._id
-        })
-      }
-        
-      axios.get(`http://localhost:4000/api/v1/users/${this.state.userId}`)
-      .then((res) => {
-        console.log(res)
-        this.setState({
-          nextUpShows: res.data[0].nextUp,
-          currentlyWatchingShows: res.data[0].currentlyWatching,
-          faveShows: res.data[0].faves,
-          friends: res.data[0].friends
-        })
+  
+  state = {
+      user: '',
+      userId: '',
+      nextUpShows:[],
+      currentlyWatchingShows: [],
+      faveShows: [],
+      friends:[]
+    }
+  
+  componentDidMount() {
+    let id = this.props.location.pathname.substring(9)
+
+    if (localStorage.jwtToken) {
+      setAuthHeader(localStorage.jwtToken);
+      const decoded = jwt_decode(localStorage.getItem('jwtToken'));
+      this.setState({
+        user: decoded.username,
+        userId: decoded._id
       })
-      .catch((err)=> {console.log(err)})
     }
-
-    render(){
-      
-        let nextUpShows = this.state.nextUpShows.map((show)=>{
-          if (this.state.nextUpShows.length>0){
-            return (<NextUp show= {show}
-                            key={show._id} />)
-          }else{
-            return (<h1>search to add new shows!</h1>)
-          }
-        }) 
-
-        let currentlyWatchingShows = this.state.currentlyWatchingShows.map((show)=>{
-          if (this.state.currentlyWatchingShows.length>0){
-            return (<CurrentlyWatching show= {show}
-                            key={show._id} />)}
+    axios.get(`http://localhost:4000/api/v1/users/${id}`)
+    .then((res)=>{
+      console.log(res.data)
+        this.setState({
+          nextUpShows:res.data.nextUp,
+          currentlyWatchingShows:res.data.currentlyWatching,
+          faveShows: res.data.faves,
+          friends: res.data.friends
         })
-        let faveShows = this.state.faveShows.map((show)=>{
-          if (this.state.faveShows.length>0){
-            return (<Faves show= {show}
-                            key={show._id} />)}
-        })
-        let friends = this.state.friends.map((friend)=>{
-          if (this.state.friends.length>0){
-            return (<Friends friend= {friend}
-                            key={friend._id} />)}
-        })
+    })
+    .catch((err) => {console.log(err)})
+  }
+    
+  render(){
+    let currentlyWatchingShows = this.state.currentlyWatchingShows.map((show)=>{
+      return (
+        <CurrentlyWatching show={show} key={show.title} />
+      )
+    })
 
-        return(
-            <div className = "profile-header">
-                <div className = "profile-header">
-                  <h1 className = "title">Welcome {this.state.user}!! </h1>
-                </div>
-                    {nextUpShows}
-                    {currentlyWatchingShows}
-                    {faveShows}
-                    {friends}
-            </div>
+    let nextUpShows = this.state.nextUpShows.map((show)=>{
+      return (
+        <NextUp show={show} key={show.title} />
+      )
+    })
 
-        );
-    }
+    let faveShows = this.state.faveShows.map((show)=>{
+      return (
+        <Faves show={show} key={show.title} />
+      )
+    })
+
+    let friends = this.state.friends.map((friend)=>{
+      return (
+        <Friends friend={friend} key={friend.username} />
+      )
+    })
+    
+
+
+      return(
+          <div className = "profile-header">
+              <div className = "profile-header">
+                <h1 className = "title">Welcome {this.state.user}</h1>
+              </div>
+              {faveShows} 
+              {nextUpShows}    
+              {currentlyWatchingShows}  
+              {friends}
+          </div>
+
+      );
+  }
 
 }

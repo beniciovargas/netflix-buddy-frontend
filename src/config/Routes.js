@@ -22,7 +22,7 @@ const Routes = (props) => {
           path='/register'
           render={
             () => props.user ? 
-              <Redirect to="/profile" />
+              <Redirect to={`/profile/${props.id}`} />
                 :
               <Register register={ props.register }  />
           }
@@ -32,7 +32,8 @@ const Routes = (props) => {
           exact path='/login'
           render={
             () => props.user ?
-              <Redirect to="/profile" />
+              // <Redirect to="/profile" />
+              <Redirect to={`/profile/${props.id}`} />
                 :
               <Login login={ props.login } />
           }

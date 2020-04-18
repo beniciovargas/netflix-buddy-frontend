@@ -10,7 +10,7 @@ function Navbar(props){
     <div id="navbar">
       <nav className = "navbar is-transparent" role="navigation" aria-label="main-navigation">
         <div className="navbar-brand">
-          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <a href="" role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -24,26 +24,26 @@ function Navbar(props){
                 (props.user) 
                 ? 
               <div class="navbar-end">
-                <a class="navbar-item">
+                <a href="" class="navbar-item">
                     <Link to='/users'>Find Friends</Link>
                 </a>
-                <a class="navbar-item">
+                <a href="" class="navbar-item">
                     <Link to='/search'>Search</Link>
                 </a>
-                <a class="navbar-item">
+                <a href="" class="navbar-item">
                     <Link to='/profile'>Profile</Link>
                 </a>
-                <a class="navbar-item">
-                    <a className ="button is-light" onClick= {props.logout}>Logout</a>
+                <a href="" class="navbar-item">
+                    <a href="" className ="button is-light" onClick= {props.logout}>Logout</a>
                 </a>
                 
               </div>
                 : 
               <div class="navbar-end">
-                <a class="navbar-item">
+                <a href="" class="navbar-item">
                     <Link to='/register'>Register</Link>
                 </a>
-                <a class="navbar-item">
+                <a href="" class="navbar-item">
                     <Link to='/login'>Login</Link>
                 </a>
               </div>
