@@ -57,7 +57,7 @@ export default class Showpage extends React.Component{
 
     nextUpAdd = () => {
         console.log("next up selected!")
-        axios.put(`http://localhost:4000/api/v1/users/${this.state.userId}`,{
+        axios.put(`http://localhost:4000/api/v1/users/${this.state.userId}/updateNext`,{
             nextUp: this.state.currentShow
         })
         .then((res)=>{console.log(res)})
