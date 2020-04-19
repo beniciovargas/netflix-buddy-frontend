@@ -69,7 +69,7 @@ export default class Showpage extends React.Component{
 
     favesAdd = () => {
         console.log("faves selected!")
-        axios.put(`http://localhost:4000/api/v1/users/${this.state.userId}`,{
+        axios.put(`http://localhost:4000/api/v1/users/${this.state.userId}/updateFaves`,{
             faves: this.state.currentShow
         })
         .then((res)=>{console.log(res)})
@@ -81,7 +81,7 @@ export default class Showpage extends React.Component{
 
     currentlyWatchingAdd = () => {
         console.log("currently watching selected!")
-        axios.put(`http://localhost:4000/api/v1/users/${this.state.userId}`,{
+        axios.put(`http://localhost:4000/api/v1/users/${this.state.userId}/updateCurrent`,{
             currentlyWatching: this.state.currentShow
         })
         .then((res)=>{console.log(res)})
