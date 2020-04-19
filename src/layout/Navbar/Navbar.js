@@ -31,7 +31,7 @@ function Navbar(props){
                     <Link to='/search'>Search</Link>
                 </a>
                 <a href="" class="navbar-item">
-                    <Link to='/profile'>Profile</Link>
+                    <Link to={`/profile/${props.id}`}>Profile</Link>
                 </a>
                 <a href="" class="navbar-item">
                     <a href="" className ="button is-light" onClick= {props.logout}>Logout</a>

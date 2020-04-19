@@ -38,15 +38,42 @@ export default class Friends extends React.Component{
         if (this.state.redirect){
             return <Redirect to={`/profile/${this.state.userId}`}/>   
         }
+
         return(
-            <div class="tile is-parent">
-                <article class="tile is-child box">
-                    <p class="title">{this.props.foundUser.username}</p>
-                    <figure class="image is-4by3">
-                        {/* <img src={this.props.result.img}/> */}
-                    </figure>
-                    <a className="button is-primary" onClick={this.addFriend}>View Details</a>
-                </article>
+            <div className="container">
+                <div id="flow">
+                    <span className="flow-1"></span>
+                    <span className="flow-2"></span>
+                    <span className="flow-3"></span>
+                </div>    
+                <div className="section">
+                    <div class="row columns is-multiline">
+                        <div className="column is-one-third">
+                            <div className="card large">
+                                <div className="card-image">
+                                    <figure class="image">
+                                        <img src="http://dummyimage.com/450x250/"  alt="Image"/>
+                                    </figure>
+                                </div>
+                                <div className="card-content">
+                                    <div className="media">
+                                        <div class="media-left">
+                                            <figure class="image is-96x96">
+                                                <img src="http://www.placecage.com/c/200/300" alt="Image"/>
+                                            </figure>
+                                        </div>
+                                        <div className="media-content">
+                                            <p className="title is-4 no-padding">{this.props.foundUser.username}</p>
+                                        </div>
+                                    </div>
+                                    <div className="content">
+                                        <a className="button is-primary" onClick={this.addFriend}>View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>      
+                </div>
             </div>
         )
     }

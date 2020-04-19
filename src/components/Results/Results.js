@@ -54,14 +54,27 @@ export default class Results extends React.Component{
         }
 
         return(
-            <div class="tile is-parent">
-                <article class="tile is-child box">
-                <p class="title">{this.props.result.title}</p>
-                    <figure class="image is-4by3">
-                        <img src={this.props.result.img}/>
-                    </figure>
-                    <a className="button is-primary" onClick={this.addShow}>View Details</a>
-                </article>
+
+            <div className="column is-one-third">
+                <div className="card large round">
+                    <div className="card-image ">
+                        <figure className="image">
+                            <img src={this.props.result.img} alt="Image"/>
+                        </figure>
+                    </div>
+                    <div className="card-content">
+                        <div className="media">
+                            <div className="media-content">
+                                <p className="title is-4 no-padding">{this.props.result.title}</p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            {this.props.result.synopsis}
+                            <br/>
+                            <a className="button is-primary" onClick={this.addShow}>View Details</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

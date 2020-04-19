@@ -96,41 +96,61 @@ export default class Showpage extends React.Component{
         if (this.state.redirect){
             return <Redirect to={`/profile/${this.state.userId}`}/>   
         }
+
         return(
-            <div>
-                <div className="dropdown">
-                    <div className="dropdown-trigger">
-                        <button className="button is-primary" onClick={this.handleButtonClick} aria-haspopup="true" aria-controls="dropdown-menu">
-                        <span>Add to your profile</span>
-                        <span className="icon is-small">
-                            <i className="fas fa-angle-down" aria-hidden="true"></i>
-                        </span>
-                        </button>
-                    </div>
-                    <div className="dropdown-menu" id="dropdown-menu" role="menu">
-                        <div className="dropdown-content">
-                            <a onClick={this.nextUpAdd} className="dropdown-item">
-                                Add to Next Up
-                            </a>
-                            <hr className="dropdown-divider"></hr>
-                            <a onClick={this.favesAdd} className="dropdown-item">
-                                Add to Faves
-                            </a>
-                            <hr className="dropdown-divider"></hr>
-                            <a onClick={this.currentlyWatchingAdd} className="dropdown-item">
-                                Add to Currently Watching
-                            </a>
+            <div className="container">
+                <div id="flow">
+                    <span className="flow-1"></span>
+                    <span className="flow-2"></span>
+                    <span className="flow-3"></span>
+                </div>    
+                <div className="section">
+                    <div className="dropdown">
+                        <div className="dropdown-trigger">
+                            <button className="button is-primary" onClick={this.handleButtonClick} aria-haspopup="true" aria-controls="dropdown-menu">
+                            <span>Add to your profile</span>
+                            <span className="icon is-small">
+                                <i className="fas fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                            </button>
+                        </div>
+                        <div className="dropdown-menu" id="dropdown-menu" role="menu">
+                            <div className="dropdown-content">
+                                <a onClick={this.nextUpAdd} className="dropdown-item">
+                                    Add to Next Up
+                                </a>
+                                <hr className="dropdown-divider"></hr>
+                                <a onClick={this.favesAdd} className="dropdown-item">
+                                    Add to Faves
+                                </a>
+                                <hr className="dropdown-divider"></hr>
+                                <a onClick={this.currentlyWatchingAdd} className="dropdown-item">
+                                    Add to Currently Watching
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="tile is-parent">
-                    <article className="tile is-child box">
-                        <p className="title">{this.state.currentShow.title}</p>
-                        <p className="subtitle">{this.state.currentShow.synopsis}</p>
-                        <figure className="image is-4by3">
-                            <img src={this.state.currentShow.img}/>
-                        </figure>
-                    </article>
+                    <div className="row columns">
+                        <div className="column is-one-third">
+                            <div className="card large round">
+                                <div className="card-image ">
+                                    <figure className="image">
+                                        <img src={this.state.currentShow.img} alt="Image"/>
+                                    </figure>
+                                </div>
+                                <div className="card-content">
+                                    <div className="media">
+                                        <div className="media-content">
+                                            <p className="title is-4 no-padding">{this.state.currentShow.title}</p>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+                                        {this.state.currentShow.synopsis}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         )

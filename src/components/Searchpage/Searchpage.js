@@ -48,16 +48,25 @@ export default class Searchpage extends React.Component{
         }
       
         return(
-            <div className = "searchpage">
-                <div className="field has-addons">
-                    <div className = "control">
-                        <input onChange = {this.handleChange} class="input is-primary" type="text" placeholder="search"></input>
-                    </div>
-                    <div className = "control"></div>
-                        <a onClick={this.search} class="button is-primary">Submit</a>
+            <div className="container">
+                <div id="flow">
+                    <span class="flow-1"></span>
+                    <span class="flow-2"></span>
+                    <span class="flow-3"></span>
                 </div>
-                
-                <div class="tile is-ancestor is-one-quarter">
+                <div class="section">
+                    <div class="box">
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <input onChange = {this.handleChange} class="input is-primary" type="text" placeholder="search"></input>
+                            </div>
+                            <div class="control">
+                                <a onClick={this.search} class="button is-primary">Search</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row columns is-multiline">
                 {results}
                 </div>
             </div>
