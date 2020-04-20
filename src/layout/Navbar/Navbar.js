@@ -43,6 +43,9 @@ function Navbar(props){
       : 
           <nav className="level">
             <div className="level-left">
+              <Link to='/'>
+                <img className="logo" src={logo} style={{margin: '0px 24px'}} alt=""/>
+              </Link>
             </div>
             <div className="level-right nav-unreg">
               <p class="level-item has-text-centered is-size-6 has-text-weight-semibold">
