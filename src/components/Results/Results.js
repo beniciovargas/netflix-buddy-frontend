@@ -55,7 +55,7 @@ export default class Results extends React.Component{
 
         return(
 
-            <div className="column is-one-third">
+            <div className="column is-one-quarter">
                 <div className="card large round">
                     <div className="card-image ">
                         <figure className="image">
