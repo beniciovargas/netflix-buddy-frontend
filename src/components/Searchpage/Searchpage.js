@@ -48,28 +48,35 @@ export default class Searchpage extends React.Component{
         }
       
         return(
-            <div className="container">
-                <div id="flow">
-                    <span class="flow-1"></span>
-                    <span class="flow-2"></span>
-                    <span class="flow-3"></span>
-                </div>
-                <div class="section">
-                    <div class="box">
-                        <div class="field has-addons">
-                            <div class="control is-expanded">
-                                <input onChange = {this.handleChange} class="input is-primary" type="text" placeholder="search"></input>
-                            </div>
-                            <div class="control">
-                                <a onClick={this.search} class="button is-primary">Search</a>
+
+        <div>
+            <section class="hero search-hero">
+                <div class="hero-body">
+                    <div class="columns">
+                        <div class="column is-12">
+                            <div class="container content">
+                                <h1 class="search-header-text title">See what's on Netflix!</h1>
                             </div>
                         </div>
                     </div>
                 </div>
+            </section>
+            <div className="container">
+                <div class="box">
+                    <div class="field has-addons">
+                        <div class="control is-expanded">
+                            <input onChange = {this.handleChange} class="input" type="text"></input>
+                        </div>
+                        <div class="control">
+                            <a onClick={this.search} class="button">Search</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="row columns is-multiline">
-                {results}
+                    {results}
                 </div>
             </div>
+        </div>
         )
     }
 

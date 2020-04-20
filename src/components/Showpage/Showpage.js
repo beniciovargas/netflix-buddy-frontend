@@ -3,7 +3,7 @@ import axios from 'axios';
 import setAuthHeader from '../../utils/setAuthHeader';
 import {Redirect} from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
-
+import './Showpage.css'
 
 export default class Showpage extends React.Component{
     state = {
@@ -130,8 +130,7 @@ export default class Showpage extends React.Component{
                             </div>
                         </div>
                     </div>
-                    <div className="row columns">
-                        <div className="column is-one-third">
+                        <div className="column is-one-quarter">
                             <div className="card large round">
                                 <div className="card-image ">
                                     <figure className="image">
@@ -150,7 +149,6 @@ export default class Showpage extends React.Component{
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         )

@@ -1,3 +1,17 @@
-.searchpage{
-    margin: 50px;
+.hero {
+    background-color: #009797;
+    padding: 40px;
+}
+
+section .search-header-text{
+    color: #f5f5f5;
+}
+
+.control .button{
+    background-color: #bd0000;
+    color: #f5f5f5;
+}
+
+.control .input{
+    border-color: #bd0000;
 }

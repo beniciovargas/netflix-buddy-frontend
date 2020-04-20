@@ -8,22 +8,19 @@ function Friends (props){
             <div className="card large">
                 <div className="card-image">
                     <figure class="image">
-                        <img src="http://dummyimage.com/450x250/"  alt="Image"/>
+                        <img src="https://placeimg.com/420/200/nature"  alt="Image"/>
                     </figure>
                 </div>
                 <div className="card-content">
                     <div className="media">
                         <div class="media-left">
-                            <figure class="image is-96x96">
-                                <img src="http://www.placecage.com/c/200/300" alt="Image"/>
+                            <figure class="image is-128x128">
+                                <img className="is-rounded" src="http://www.placecage.com/c/200/200" alt="Image"/>
                             </figure>
                         </div>
                         <div className="media-content">
                             <p className="title is-4 no-padding">{props.friend.username}</p>
                         </div>
-                    </div>
-                    <div className="content">
-                        
                     </div>
                 </div>
             </div>

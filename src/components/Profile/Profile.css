@@ -1,3 +1,73 @@
-.profile-header{
-    margin: 50px;
+.container .profile-container{
+    padding-top: 50px;
+}
+
+.profile-section{
+    background-color: #009797;
+    padding: 84px;
+    border-radius: 12px;
+}
+
+.profile-section .box{
+    background-color: #bd0000;
+    border-radius: 12px;
+}
+
+.profile-section .profile-header{
+    margin: 20px;
+}
+
+
+.header-title{
+    color: #f5f5f5;
+    text-align: center;
+}
+
+.header-subtitle{
+    color: #f5f5f5;
+    text-align: center;
+}
+
+.current-results{
+    background-color: #bd0000;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.current-header{
+    color: #f5f5f5;
+    padding: 36px 0px 36px 0px;
+}
+
+.next-results{
+    background-color: #bd0000;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.next-up-header{
+    color: #f5f5f5;
+    padding: 64px 0px 36px 0px;
+}
+
+.faves-header{
+    color: #f5f5f5;
+    padding: 64px 0px 36px 0px;
+}
+
+.faves-results{
+    background-color: #bd0000;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.friends-header{
+    color: #f5f5f5;
+    padding: 64px 0px 36px 0px;
+}
+
+.friends-results{
+    background-color: #bd0000;
+    border-radius: 12px;
+    padding: 24px;
 }

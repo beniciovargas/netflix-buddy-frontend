@@ -3,6 +3,7 @@ import setAuthHeader from '../../utils/setAuthHeader';
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
 import FriendsResults from '../FriendsResults/FriendsResults';
+import './FindFriends.css'
 
 
 export default class FindFriends extends React.Component{
@@ -27,7 +28,6 @@ export default class FindFriends extends React.Component{
     
 
     render(){
-        
             let foundUsers = this.state.response.map((foundUser)=> {
                 if (this.state.response){
                     return(<FriendsResults
@@ -40,9 +40,16 @@ export default class FindFriends extends React.Component{
         
       
         return(
-            <div className = "findfriends">
-                <div class="tile is-ancestor is-one-quarter">
-                {foundUsers}
+            <div className="container">
+                <div id="flow">
+                    <span className="flow-1"></span>
+                    <span className="flow-2"></span>
+                    <span className="flow-3"></span>
+                </div>    
+                <div className="section">
+                    <div class="row columns is-multiline">
+                        {foundUsers}
+                    </div>
                 </div>
             </div>
         )            

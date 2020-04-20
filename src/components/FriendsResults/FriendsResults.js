@@ -3,6 +3,7 @@ import setAuthHeader from '../../utils/setAuthHeader';
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
 import {Redirect} from 'react-router-dom';
+import './FriendsResult.css';
 
 export default class Friends extends React.Component{
     state={
@@ -40,41 +41,29 @@ export default class Friends extends React.Component{
         }
 
         return(
-            <div className="container">
-                <div id="flow">
-                    <span className="flow-1"></span>
-                    <span className="flow-2"></span>
-                    <span className="flow-3"></span>
-                </div>    
-                <div className="section">
-                    <div class="row columns is-multiline">
-                        <div className="column is-one-third">
-                            <div className="card large">
-                                <div className="card-image">
-                                    <figure class="image">
-                                        <img src="http://dummyimage.com/450x250/"  alt="Image"/>
-                                    </figure>
-                                </div>
-                                <div className="card-content">
-                                    <div className="media">
-                                        <div class="media-left">
-                                            <figure class="image is-96x96">
-                                                <img src="http://www.placecage.com/c/200/300" alt="Image"/>
-                                            </figure>
-                                        </div>
-                                        <div className="media-content">
-                                            <p className="title is-4 no-padding">{this.props.foundUser.username}</p>
-                                        </div>
-                                    </div>
-                                    <div className="content">
-                                        <a className="button is-primary" onClick={this.addFriend}>View Details</a>
-                                    </div>
-                                </div>
+            
+            <div className="column is-one-third">
+                <div className="card">
+                    <div className="card-image">
+                        <figure class="header-image">
+                            <img src="https://placeimg.com/420/200/nature" alt="Image"/>
+                        </figure>
+                    </div>
+                    <div className="card-content">
+                        <div className="media">
+                            <div class="media-left">
+                                <figure class="image is-128x128">
+                                    <img className="profile-image is-rounded" src="http://www.placecage.com/c/200/200" alt="Image"/>
+                                </figure>
+                            </div>
+                            <div className="media-content">
+                                <p className="title is-3 is-uppercase has-text-centered">{this.props.foundUser.username}</p>
+                                <a className="button is-uppercase is-pulled-right" onClick={this.addFriend}>Add Friend!</a>
                             </div>
                         </div>
-                    </div>      
+                    </div>
                 </div>
-            </div>
+            </div>   
         )
     }
 }
