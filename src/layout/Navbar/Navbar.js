@@ -46,12 +46,12 @@ function Navbar(props){
             </div>
             <div className="level-right nav-unreg">
               <p class="level-item has-text-centered is-size-6 has-text-weight-semibold">
-                <a href="" class="link is-info">
+                <a href="" class="link is-info" style={{margin: '0px 24px'}}>
                   <Link to='/register'>register</Link>
                 </a>
               </p>
-              <p class="level-item has-text-centered is-size-6  has-text-weight-semibold">
-                <a href="" class="link is-info">
+              <p class="level-item has-text-centered is-size-6 has-text-weight-semibold">
+                <a href="" class="link is-info" style={{margin: '0px 24px'}}>
                   <Link to='/login'>login</Link>
                 </a>
               </p>
