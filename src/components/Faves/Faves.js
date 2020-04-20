@@ -4,7 +4,7 @@ import React from 'react';
 function Faves(props){
 
     return (
-        <div className="column is-one-third">
+        <div className="column is-one-quarter">
             <div className="card large">
                 <div className="card-image">
                     <figure className="image">

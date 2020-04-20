@@ -46,9 +46,7 @@ export default class Searchpage extends React.Component{
                 )
             })
         }
-      
         return(
-
         <div>
             <section class="hero search-hero">
                 <div class="hero-body">

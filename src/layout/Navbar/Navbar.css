@@ -5,5 +5,8 @@ nav{
 
 nav a{
     color: #bd0000;
-    margin: 0px 24px;
+}
+
+nav .logo{
+    width: 25%;
 }

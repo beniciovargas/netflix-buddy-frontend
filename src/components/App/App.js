@@ -3,6 +3,7 @@ import {Redirect} from "react-router-dom"
 import jwt_decode from 'jwt-decode';
 import setAuthHeader from '../../utils/setAuthHeader';
 import Navbar from '../../layout/Navbar/Navbar';
+import Footer from '../../layout/Footer/Footer';
 import Routes from '../../config/Routes';
 import UserApi from '../../api/UserApi';
 import './App.css';
@@ -92,7 +93,7 @@ logout = () => {
               register={this.register}
               id = {this.state.id}
             />
-
+            <Footer />
       </div>
     );
   }

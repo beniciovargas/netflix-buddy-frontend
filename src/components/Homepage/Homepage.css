@@ -1,3 +1,17 @@
-.hero .homepage-hero {
-    background: url(../../images/tv.jpg)
+.homepage-container .hero {
+    background-image:url(../../images/nb-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: grayscale(5%);
+}
+
+.homepage-container .welcome-title{
+    color: #000000;
+    text-shadow: .5px .5px #b2b2b2;
+}
+
+.homepage-container .welcome-subtitle{
+    color: #000000;
+    text-shadow: .5px .25px #b2b2b2;
+   
 }

@@ -4,8 +4,8 @@ import React from 'react';
 function CurrentlyWatching (props){
 
     return (
-        <div className="column is-one-third">
-            <div className="card large">
+        <div className="column is-one-quarter">
+            <div className="card">
                 <div className="card-image">
                     <figure className="image">
                         <img src={props.show.img} alt="Image"/>

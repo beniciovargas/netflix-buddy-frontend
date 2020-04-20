@@ -3,7 +3,7 @@ import React from 'react';
 
 function NextUp(props){
     return (
-            <div className="column is-one-third">
+            <div className="column is-one-quarter">
                 <div className="card large">
                     <div className="card-image">
                         <figure className="image">
@@ -22,7 +22,6 @@ function NextUp(props){
                     </div>
                 </div>
             </div>
-      
     )
 }
 
