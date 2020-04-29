@@ -30,3 +30,20 @@ function Friends (props){
 
 
 export default Friends;
+
+        // <div className="column is-one-third">
+        //     <div className="card">
+        //         <div className="card-content">
+        //             <div className="media">
+        //                 <div class="media-left">
+        //                     <figure class="image is-128x128">
+        //                         <img className="is-rounded" src="http://www.placecage.com/c/200/200" alt="Image"/>
+        //                     </figure>
+        //                 </div>
+        //                 <div className="media-content">
+        //                     <h1 className = "header-title title is-1 is-uppercase">Welcome {this.state.user}!</h1>
+        //                 </div>
+        //             </div>
+        //         </div>
+        //     </div>
+        // </div>

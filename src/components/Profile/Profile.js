@@ -52,7 +52,24 @@ export default class Profile extends React.Component{
           <div className ="profile-header-container container">  
             <div className="profile-box box">
               <div className = "profile-header">
-                <h1 className = "header-title title is-1 is-uppercase">Welcome {this.state.user}!</h1>
+          
+                <div className="column is-full is-vcentered">
+                    <div className="card">
+                        <div className="card-content">
+                            <div className="media">
+                                <div class="media-left">
+                                    <figure class="image is-128x128">
+                                        <img className="is-rounded" src="http://www.placecage.com/c/200/200" alt="Image"/>
+                                    </figure>
+                                </div>
+                                <div className="media-content">
+                                    <h1 className = "header-title title is-1 is-uppercase">Welcome {this.state.user}!</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
               </div>
             </div>
           </div>
